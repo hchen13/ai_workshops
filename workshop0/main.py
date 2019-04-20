@@ -120,11 +120,11 @@ if __name__ == '__main__':
     test_x, test_y = preprocess_data(test_x, test_y)
 
     shallow = create_shallow_nn()
-    shallow.fit(train_x, train_y, epochs=10, batch_size=16, verbose=2)
+    shallow.fit(train_x, train_y, epochs=50, batch_size=16, verbose=2)
     print("训练完成!\n")
     evaluate_model(shallow, test_x, test_y)
 
     deep = create_deep_nn()
-    deep.fit(train_x, train_y, epochs=10, batch_size=16, verbose=2)
+    deep.fit(train_x, train_y, epochs=50, batch_size=16, verbose=2)
     print("训练完成!\n")
     evaluate_model(deep, test_x, test_y)
