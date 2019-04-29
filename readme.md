@@ -46,3 +46,16 @@ pip install scikit-image opencv-contrib-python numpy tensorflow==1.11.0 keras -i
 ~~~
 
 在上面的命令中, 我们通过豆瓣的镜像源下载了scikit-image, opencv, numpy, tensorflow, keras这几个开发库. 不同的项目需要不同的库类, 根据需要安装即可
+
+在深度学习开发中的常用库类:
+
+* tensorflow
+* keras
+* numpy
+* scikit-learn
+* scikit-image
+* opencv-contrib-python
+* pillow
+* pandas
+* jupyter
+* jupyterlab
