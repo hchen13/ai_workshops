@@ -9,6 +9,7 @@
 若已经安装过conda, 请略过这部分.
 
 一种简单的方式是用[miniconda](https://docs.conda.io/en/latest/miniconda.html)来安装Python语言, 通过它可以方便的创建虚拟环境, 管理Python版本和各种库类等. 先下载安装文件, 下载完成后执行脚本:
+Windows用户可通过上面网站下载exe安装包进行安装.
 ~~~bash
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
 bash Miniconda3-latest-MacOSX-x86_64.sh
