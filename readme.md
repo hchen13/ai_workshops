@@ -8,8 +8,9 @@
 
 若已经安装过conda, 请略过这部分.
 
-一种简单的方式是用[miniconda](https://docs.conda.io/en/latest/miniconda.html)来安装Python语言, 通过它可以方便的创建虚拟环境, 管理Python版本和各种库类等. 先下载安装文件, 下载完成后执行脚本:
-Windows用户可通过上面网站下载exe安装包进行安装.
+一种简单的方式是用[miniconda](https://docs.conda.io/en/latest/miniconda.html)来安装Python语言, 
+通过它可以方便的创建虚拟环境, 管理Python版本和各种库类等. 下面以Mac OS X系统为例, 先下载安装文件, 下载完成后执行脚本
+ (Windows用户可通过上面网站下载exe安装包进行安装):
 ~~~bash
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
 bash Miniconda3-latest-MacOSX-x86_64.sh
@@ -33,14 +34,17 @@ conda create -n deeplearning python=3.6.5 matplotlib -y
 conda-env list
 ~~~
 
-开始使用所创建的环境deeplearning
+进入到所创建的deeplearning环境开始使用
 ~~~bash
-source activate deeplearning
+conda activate deeplearning
 ~~~
+
+\* **用```conda deactivate```命令来结束使用环境.**
 
 ## 2. 依赖
 
-在开发中我们会用到各种库类依赖, 需要先把他们安装起来
+在开发中我们会用到各种库类依赖, 需要先把他们安装起来, 这里是在安装python能使用的依赖, 所以在进行这一步之前, 一定要先进入到我们的
+deeplearning环境中, 否则下列安装不能在我们的环境中生效.
 ~~~bash
 pip install scikit-image opencv-contrib-python numpy tensorflow==1.11.0 keras -i https://pypi.doubanio.com/simple/
 ~~~
