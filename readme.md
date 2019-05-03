@@ -2,7 +2,7 @@
 
 在正式开始我们的深度学习开发之前, 我们需要先安装开发环境. 
 
-[视频教程](https://v.youku.com/v_show/id_XNDE2NDUwNzczMg==.html?spm=a2h3j.8428770.3416059.1)
+视频教程: [优酷](https://v.youku.com/v_show/id_XNDE2NDUwNzczMg==.html?spm=a2h3j.8428770.3416059.1)
 
 ## 1. Python 3
 
