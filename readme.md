@@ -45,8 +45,13 @@ conda activate deeplearning
 
 ## 2. 依赖
 
-在开发中我们会用到各种库类依赖, 需要先把他们安装起来, 这里是在安装python能使用的依赖, 所以在进行这一步之前, 一定要先进入到我们的
-deeplearning环境中, 否则下列安装不能在我们的环境中生效.
+在开发中我们会用到各种库类依赖, 需要先把他们安装起来, 这里是在安装python能使用的依赖.
+
+**重点**
+
+**所以在进行这一步之前, 一定要先```conda activate deeplearning```进入到我们的
+deeplearning环境中, 否则下列安装不能在我们的环境中生效.**
+
 ~~~bash
 pip install scikit-image opencv-contrib-python numpy tensorflow==1.11.0 keras -i https://pypi.doubanio.com/simple/
 ~~~
