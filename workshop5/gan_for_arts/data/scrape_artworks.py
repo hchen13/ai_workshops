@@ -90,13 +90,12 @@ def download_batch(start, end, genre):
             url = url.rstrip('\n')
             fullname = os.path.join(base_dir, genre, '{}.jpg'.format(start + i))
             try:
-                image_content = requests.get(url, timeout=30).content
+                image_content = requests.get(url, timeout=10).content
                 with open(fullname, 'wb') as handler:
                     handler.write(image_content)
                 record += 1
                 print('\r[info] progress: {}/{} images have been downloaded'.format(record, count), flush=True, end='')
             except requests.Timeout:
-                print("\n[error] URL: {} is **TIMED OUT**".format(url))
                 count_invalid += 1
 
 
@@ -131,7 +130,7 @@ def download_images(genre, num_threads=multiprocessing.cpu_count()):
         except KeyboardInterrupt:
             break
 
-    print("Finished, success/invalid = {}/{}\n\n".format(count - count_invalid, count_invalid))
+    print("\nGenre [{}] finished, success/invalid = {}/{}\n\n".format(genre, count - count_invalid, count_invalid))
 
 
 if __name__ == '__main__':
@@ -139,4 +138,4 @@ if __name__ == '__main__':
     #     scrape(genre, pages)
 
     for genre, _ in genres:
-        download_images(genre, num_threads=multiprocessing.cpu_count() * 8)
+        download_images(genre, num_threads=multiprocessing.cpu_count() * 16)
