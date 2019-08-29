@@ -1,3 +1,4 @@
+import glob
 import os
 
 import cv2
@@ -8,6 +9,7 @@ from keras.applications import InceptionV3, inception_v3
 from keras.engine.saving import load_model
 from keras.layers import Dense, regularizers, GlobalAveragePooling2D, Dropout
 from keras.preprocessing.image import ImageDataGenerator
+from scipy.misc import imresize
 from sklearn.metrics import classification_report
 
 matplotlib.use('TkAgg')

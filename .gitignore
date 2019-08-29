@@ -4,3 +4,10 @@
 *.key
 *.flv
 *.h5
+*.sh
+__pycache__/
+*.rar
+*.jpg
+*.png
+*.pdf
+*.gif
