@@ -7,7 +7,7 @@ from tensorflow.python.framework.errors_impl import NotFoundError
 from tensorflow.python.keras import Input, Model
 from tensorflow.python.keras.engine import Layer
 from tensorflow.python.keras.layers import Concatenate, Dense, Reshape, LeakyReLU, \
-    BatchNormalization, Flatten, Conv2D, Conv2DTranspose, Dropout
+    BatchNormalization, Flatten, Conv2D, Conv2DTranspose
 
 
 class GatedNonlinearity(Layer):
@@ -148,6 +148,9 @@ class Discriminator(BaseModel):
             print('\n', report)
 
         model_name = 'pretrain{}'.format(iterations)
+        if self.bn_epsilon == 0:
+            model_name = 'no_bn_' + model_name
+
         if not retrain:
             success = self.load(model_name)
             if success:
@@ -166,7 +169,4 @@ if __name__ == '__main__':
     num_classes = 14
     minimum_feature_channels = 64
     target_image_width = 128
-    # gen = get_generator(num_classes, min_channels=minimum_feature_channels, target_width=target_image_width)
-    # disc = get_discriminator(num_classes=num_classes, image_width=target_image_width, depth=minimum_feature_channels)
-    # disc.summary()
     disc = Discriminator(num_classes=num_classes, image_width=target_image_width, depth=minimum_feature_channels)

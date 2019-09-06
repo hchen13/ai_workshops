@@ -1,6 +1,7 @@
 import os
 import shutil
 
+import numpy as np
 import tensorflow as tf
 
 class Monitor:
@@ -23,3 +24,17 @@ class Monitor:
     def image(self, tag, images, step):
         with self.writer.as_default():
             tf.summary.image(tag, images, max_outputs=64, step=step)
+
+
+def display_image(*images, col=None, width=20):
+    from matplotlib import pyplot as plt
+    if col is None:
+        col = len(images)
+    row = np.math.ceil(len(images) / col)
+    plt.figure(figsize=(width, (width + 1) * row / col))
+    for i, image in enumerate(images):
+        plt.subplot(row, col, i + 1)
+        plt.axis('off')
+        plt.imshow(image, cmap='gray')
+    plt.subplots_adjust(wspace=0, hspace=0)
+    plt.show()

@@ -10,12 +10,6 @@ base_dir = os.path.join(os.path.expanduser('~'), 'datasets', 'artworks')
 if not os.path.exists(base_dir):
     os.makedirs(base_dir)
 
-def init_driver(headless=False):
-    options = webdriver.ChromeOptions()
-    if headless:
-        options.add_argument('headless')
-    return webdriver.Chrome(options=options)
-
 genres = [
     ('portrait',100),
     ('landscape',100),
@@ -32,6 +26,13 @@ genres = [
     ('flower-painting',30),
     ('animal-painting',30)
 ]
+
+
+def init_driver(headless=False):
+    options = webdriver.ChromeOptions()
+    if headless:
+        options.add_argument('headless')
+    return webdriver.Chrome(options=options)
 
 
 def get_links(genre, page_num):
@@ -76,7 +77,7 @@ def scrape(genre, pages):
     num_images = len(urls)
 
     print("[info] {} images found, saving URLs into text file...".format(num_images))
-    with open('{}_urls.txt'.format(genre), 'w') as fout:
+    with open('tmp/{}_urls.txt'.format(genre), 'w') as fout:
         for url in urls:
             fout.write(url + '\n')
 
@@ -134,8 +135,9 @@ def download_images(genre, num_threads=multiprocessing.cpu_count()):
 
 
 if __name__ == '__main__':
-    # for genre, pages in genres:
-    #     scrape(genre, pages)
+
+    for genre, pages in genres:
+        scrape(genre, pages)
 
     for genre, _ in genres:
-        download_images(genre, num_threads=multiprocessing.cpu_count() * 16)
+        download_images(genre, num_threads=multiprocessing.cpu_count() * 4)
